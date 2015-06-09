@@ -529,7 +529,8 @@ function _init() {
     selectors: $.AdminLTE.options.boxWidgetOptions.boxWidgetSelectors,
     icons: $.AdminLTE.options.boxWidgetOptions.boxWidgetIcons,
     activate: function () {
-      var _this = this;
+        
+        var _this = this;
       //Listen for collapse event triggers
       $(_this.selectors.collapse).on('click', function (e) {
         e.preventDefault();
@@ -543,30 +544,39 @@ function _init() {
       });
     },
     collapse: function (element) {
+        
       var _this = this;
       //Find the box parent
       var box = element.parents(".box").first();
       //Find the body and the footer
       var box_content = box.find("> .box-body, > .box-footer");
-      if (!box.hasClass("collapsed-box")) {
+        
+        
+        if (!box.hasClass("collapsed-box")) {
+        
         //Convert minus into plus
         element.children(":first")
                 .removeClass(_this.icons.collapse)
                 .addClass(_this.icons.open);
         //Hide the content
-        box_content.slideUp(300, function () {
-          box.addClass("collapsed-box");
-        });
+        //box_content.slideUp(30000, function () {
+        //  box.addClass("collapsed-box");
+            //});
+        box.addClass("collapsed-box");
+        box_content.hide();
       } else {
         //Convert plus into minus
         element.children(":first")
                 .removeClass(_this.icons.open)
                 .addClass(_this.icons.collapse);
-        //Show the content
-        box_content.slideDown(300, function () {
-          box.removeClass("collapsed-box");
-        });
-      }
+            //Show the content
+        box.removeClass("collapsed-box");
+        box_content.show();
+        //box_content.slideDown(30000, function () {
+        //  box.removeClass("collapsed-box");
+        //});
+        
+    }
     },
     remove: function (element) {
       //Find the box parent

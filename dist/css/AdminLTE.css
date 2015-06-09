@@ -1780,6 +1780,10 @@ a:focus {
   padding: 10px;
   background-color: #ffffff;
 }
+
+.box-animated {
+    transition: all ease-in-out 0.5s;
+}
 .chart-legend {
   margin: 10px 0;
 }
